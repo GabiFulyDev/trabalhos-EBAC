@@ -9,21 +9,29 @@ function validaNumero(numeroCompleto){
     return numeroComoArray.numeroValorDois > numeroValorUm  ;
 }
 
-    document.addEventListener("DOMContentLoaded", function(e) {
+    document.addEventListener('submit', function(e) {
         e.preventDefault();
-        var campoA = document.getElementById("campoA");
-        var campoB = document.getElementById("campoB");
-        const mensagemDeSucesso = `Tudo ok! Número do Campo B é maior que do que número Campo A!` ;
+        const campoA = document.getElementById("campoA");
+        const campoB = document.getElementById("campoB");
+        const mensagemSucesso = `Tudo ok! Número do Campo B é maior que do que número Campo A!` ;
+        const mensagemErro = `Repita. Valor B precisa ser maior que valor A.`;
         
-        document.getElementById("botao").addEventListener("click", function() {
-            if (campoB.value > campoA.value) {
-                document.querySelector('.mensagem-sucesso').innerHTML = mensagemDeSucesso ;
+        formEValido = (campoB.value > campoA.value)
+            if (formEValido) {
+                const containerMensagemSucesso = document.querySelector('.mensagem-sucesso');
+                containerMensagemSucesso.innerHTML = mensagemSucesso ;
+                containerMensagemSucesso.style.display = `block`;
+
+                campoA.value = '';
+                campoB.value = '';
+        
             } else {
-                alert("Repita. Valor B precisa ser maior que valor A");
+                const containerMensagemErro = document.querySelector('.mensagem-erro');
+                containerMensagemErro.innerHTML = mensagemErro ;
+                containerMensagemErro.style.display = `block`;
+                campoB.style.border = `1px solid red`;
             }
             });
-        });
         
-        campoA.value = '';
-        campoB.value = '';
+        
 
