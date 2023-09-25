@@ -88,10 +88,11 @@ table td img {
     border-radius: 3px;
 }
 
-.aprovado {
+.Aprovado {
     background-color: green;
 }
 
-.reprovado {
+.Reprovado {
     background-color: red;
 }
+
